@@ -1,29 +1,31 @@
 package interface_adapter.clear_users;
 
-// TODO Complete me
-
 public class ClearState {
-    private String message = null;
+    private String[] usernames = null;
     public ClearState(ClearState copy) {
-        this.message = copy.message;
+        this.usernames = copy.usernames;
     }
 
     public ClearState() {}
 
-    public String getMessage() {
-        return message;
+    public String[] getUsernames() {
+        return usernames;
     }
 
-    public void setMessage(String[] usernames) {
+    public void setUsernames(String[] usernames) {
+        this.usernames = usernames;
+    }
+
+    public String getMessage() {
+        String message = "";
         // convert usernames to a string where each username is on a new line
         if (usernames.length > 0) {
-            message = "";
             for (String username : usernames) {
                 message += username + "\n";
             }
         } else {
-            message = "No users!";
+            message = ClearViewModel.NO_USER_LABLE;
         }
-        System.out.println(message);
+        return message;
     }
 }

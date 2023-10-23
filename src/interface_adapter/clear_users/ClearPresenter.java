@@ -4,8 +4,6 @@ import interface_adapter.ViewManagerModel;
 import use_case.clear_users.ClearOutputBoundary;
 import use_case.clear_users.ClearOutputData;
 
-// TODO Complete me
-
 public class ClearPresenter implements ClearOutputBoundary{
     private final ClearViewModel clearViewModel;
     private ViewManagerModel viewManagerModel;
@@ -19,7 +17,7 @@ public class ClearPresenter implements ClearOutputBoundary{
     @Override
     public void prepareSuccessView(ClearOutputData usernames) {
         ClearState clearState = clearViewModel.getState();
-        clearState.setMessage(usernames.getUsernames());
+        clearState.setUsernames(usernames.getUsernames());
         this.clearViewModel.setState(clearState);
         this.clearViewModel.firePropertyChanged();
 
